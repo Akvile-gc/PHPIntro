@@ -111,6 +111,6 @@ $num7 = '45';
 - istrinkite jo apsirasyma ir patikrinkite ar egzistuojate. kokia reiksme gaunate? ar gaunate error?
 */
 
-//$variable = 10;
-//var_dump(isset($variable));
-//var_dump(($variable));
+$variable = 10;
+var_dump(isset($variable));
+var_dump(($variable));
