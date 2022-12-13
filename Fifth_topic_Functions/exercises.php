@@ -20,13 +20,13 @@ Funkcija grąžina: funkcija nieko negrąžina - ji tik išspausdina masyvą į 
 'another text'
 ...
 */
-function array_printer(array $yourArray): void {
-    for($i = 0; $i < sizeof($yourArray); $i++){
-        echo ($yourArray[$i] . PHP_EOL);
-    };
-};
-
-array_printer(['some text', 'another text']);
+//function array_printer(array $yourArray): void {
+//    for($i = 0; $i < sizeof($yourArray); $i++){
+//        echo ("'" . $yourArray[$i] . "'" . PHP_EOL);
+//    };
+//};
+//
+//array_printer(['some text', 'another text']);
 /*
 3. Parašykite funkciją 'stringEnhancer', kuri grąžintų pakeistą tekstą.
 Funkcijos kvietimas: stringEnhancer('some text', '##')
@@ -34,6 +34,12 @@ Funkcija grąžina: '##some text##'
 Funkcijos kvietimas: stringEnhancer('some text')
 Funkcija grąžina: '**some text**'
 */
+function string_enhancer(string $yourText, string $symbol = '**'): string {
+    return $symbol . $yourText . $symbol;
+}
+
+//var_dump(string_enhancer('some text', '##'));
+var_dump(string_enhancer('some text'));
 
 /*
 4. Parašykite funkciją 'stringModifier', kuri pamodifikuotų paduotą string tipo kintamąjį.
