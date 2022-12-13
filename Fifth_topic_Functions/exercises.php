@@ -53,13 +53,17 @@ stringModifier($x, '##');
 echo $x; // '##some text##'
 Funkcija grąžina: funkcija nieko negrąžina
 */
-
-function string_modifier(string $yourString): void{
-
+function string_modifier(string $yourString, string $symbol): void
+{
+    $yourString = $symbol . $yourString . $symbol;
 }
 
+$x = 'some text';
+string_modifier($x, '##');
+echo $x;
+
 /*
-4. Parašykite funkciją 'textReplicator', kuri grąžintų 'padaugintą' tekstą.
+5. Parašykite funkciją 'textReplicator', kuri grąžintų 'padaugintą' tekstą.
 Funkcijos kvietimas:
 textReplicator('some_text', 3);
 Funkcija grąžina: 'some_text-some_text-some_text'
@@ -69,5 +73,5 @@ Funkcija grąžina: 'some_text'
 */
 
 /*
-4. Paverskite funkciją 'textReplicator', į veikiančią anoniminę funkciją.
+6. Paverskite funkciją 'textReplicator', į veikiančią anoniminę funkciją.
 */
