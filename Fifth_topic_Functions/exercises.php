@@ -55,14 +55,14 @@ Funkcija grąžina: funkcija nieko negrąžina
 */
 
 //Don't forget to add & next to functions parameter in order to change the value later
-function string_modifier(string &$yourString, string $symbol): void
-{
-    $yourString = "'$symbol$yourString$symbol'";
-}
-
-$x = 'some text';
-string_modifier($x, '##');
-echo $x;
+//function string_modifier(string &$yourString, string $symbol): void
+//{
+//    $yourString = "'$symbol$yourString$symbol'";
+//}
+//
+//$x = 'some text';
+//string_modifier($x, '##');
+//echo $x;
 
 /*
 5. Parašykite funkciją 'textReplicator', kuri grąžintų 'padaugintą' tekstą.
@@ -73,6 +73,21 @@ Funkcijos kvietimas:
 textReplicator('some_text', null);
 Funkcija grąžina: 'some_text'
 */
+
+function text_replicator(string $text, int $num): string
+{
+    if($num){
+        for($i = 0; $i < $num; $i++){
+            echo "$text-";
+        }
+    } else {
+        echo $text;
+    }
+    return $text;
+}
+
+text_replicator('some_text', 1
+);
 
 /*
 6. Paverskite funkciją 'textReplicator', į veikiančią anoniminę funkciją.
