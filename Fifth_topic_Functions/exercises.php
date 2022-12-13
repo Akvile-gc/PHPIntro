@@ -79,7 +79,10 @@ Funkcija grąžina: 'some_text'
 //    echo "'";
 //    if($num > 1){
 //        for($i = 0; $i < $num; $i++){
-//            echo "$text-";
+//            echo $text;
+//            if($i !== $num - 1){
+//                echo "-";
+//            }
 //        }
 //    } else {
 //        echo $text;
@@ -88,7 +91,7 @@ Funkcija grąžina: 'some_text'
 //    return $text;
 //}
 //
-//text_replicator('some_text', 4);
+//text_replicator('some_text', 3);
 
 /*
 6. Paverskite funkciją 'textReplicator', į veikiančią anoniminę funkciją.
@@ -99,7 +102,10 @@ $textReplicator = function (string $text, ?int $num): string
     echo "'";
     if($num > 1){
         for($i = 0; $i < $num; $i++){
-            echo "$text-";
+            echo $text;
+            if($i !== $num - 1){
+                echo "-";
+            }
         }
     } else {
         echo $text;
@@ -108,4 +114,4 @@ $textReplicator = function (string $text, ?int $num): string
     return $text;
 };
 
-$textReplicator('some_text', null);
+$textReplicator('some_text', 3);
