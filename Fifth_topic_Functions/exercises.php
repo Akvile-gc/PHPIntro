@@ -74,7 +74,27 @@ textReplicator('some_text', null);
 Funkcija grąžina: 'some_text'
 */
 
-function text_replicator(string $text, ?int $num): string
+//function text_replicator(string $text, ?int $num): string
+//{
+//    echo "'";
+//    if($num > 1){
+//        for($i = 0; $i < $num; $i++){
+//            echo "$text-";
+//        }
+//    } else {
+//        echo $text;
+//    }
+//    echo "'";
+//    return $text;
+//}
+//
+//text_replicator('some_text', 4);
+
+/*
+6. Paverskite funkciją 'textReplicator', į veikiančią anoniminę funkciją.
+*/
+
+$textReplicator = function (string $text, ?int $num): string
 {
     echo "'";
     if($num > 1){
@@ -86,10 +106,6 @@ function text_replicator(string $text, ?int $num): string
     }
     echo "'";
     return $text;
-}
+};
 
-text_replicator('some_text', 4);
-
-/*
-6. Paverskite funkciją 'textReplicator', į veikiančią anoniminę funkciją.
-*/
+$textReplicator('some_text', null);
