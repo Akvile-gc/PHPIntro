@@ -53,9 +53,11 @@ stringModifier($x, '##');
 echo $x; // '##some text##'
 Funkcija grąžina: funkcija nieko negrąžina
 */
-function string_modifier(string $yourString, string $symbol): void
+
+//Don't forget to add & next to functions parameter in order to change the value later
+function string_modifier(string &$yourString, string $symbol): void
 {
-    $yourString = $symbol . $yourString . $symbol;
+    $yourString = "'$symbol$yourString$symbol'";
 }
 
 $x = 'some text';
