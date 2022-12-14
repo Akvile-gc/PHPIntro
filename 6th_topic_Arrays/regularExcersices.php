@@ -116,7 +116,7 @@ function exercise6(): int
     return $numbers['fourth']['value_6'][6];
 }
 
-var_dump(exercise6());
+//var_dump(exercise6());
 
 function exercise7(): array
 {
@@ -126,9 +126,12 @@ function exercise7(): array
     */
 
     $numbers = ['zero' => 0, 'one' => 1, 'two' => 2, 'three' => 3, 'four' => 4];
+    unset($numbers['two']);
 
-    return [];
+    return $numbers;
 }
+
+var_dump(exercise7());
 
 function exercise8(): array
 {
