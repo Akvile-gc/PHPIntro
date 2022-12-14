@@ -162,14 +162,12 @@ function exercise9(int $start, int $end): void
     if($start < $end){
         echo '';
     } else {
-        $dif = $start - $end;
-        for($i = $start; $i < $dif; $i--){
-            echo $start;
-            $start--;
+        for($i = $start; $i >= $end; $i--){
+            echo $i . PHP_EOL;
         };
     };
 };
-//exercise9(10, 5);
+exercise9(10, 5);
 function exercise10(int $number): void
 {
     /*
@@ -218,7 +216,7 @@ function exercise11(int $number): void
         }
     }
 }
-exercise11(21);
+//exercise11(21);
 function getNumbers(): array
 {
     return [
