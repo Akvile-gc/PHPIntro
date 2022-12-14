@@ -131,7 +131,7 @@ function exercise7(): array
     return $numbers;
 }
 
-var_dump(exercise7());
+//var_dump(exercise7());
 
 function exercise8(): array
 {
@@ -142,18 +142,30 @@ function exercise8(): array
 
     $numbers = ['ninety' => 90, 'one' => 1, 'two' => 2, 'three' => 3, 'four' => 4, 'five' => 5];
 
-    return [];
+    foreach ($numbers as $number){
+        if($number % 2 === 0){
+            $key = array_search ($number, $numbers);
+            unset($numbers[$key]);
+        }
+    }
+    return $numbers;
 }
 
+var_dump(exercise8());
 function exercise9(int $start, int $end): void
 {
     /*
     Išspausdinkite skaičius nuo $start iki $end pasinaudodami ciklu.
     Jeigu $start yra mažiau nei $end, funkcija nieko nespausdina.
     */
-
+    if($start > $end){
+        $dif = $start - $end;
+        for($i = 0; $i < $dif; $i++){
+            $start +1;
+        }
+    }
 }
-
+//var_dump(exercise9(1, 5));
 function exercise10(int $number): void
 {
     /*
