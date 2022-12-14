@@ -151,21 +151,27 @@ function exercise8(): array
     return $numbers;
 }
 
-var_dump(exercise8());
+//var_dump(exercise8());
+
 function exercise9(int $start, int $end): void
 {
     /*
     Išspausdinkite skaičius nuo $start iki $end pasinaudodami ciklu.
     Jeigu $start yra mažiau nei $end, funkcija nieko nespausdina.
     */
-    if($start > $end){
+    if($start < $end){
+        echo '';
+    } else {
         $dif = $start - $end;
-        for($i = 0; $i < $dif; $i++){
-            $start +1;
-        }
-    }
-}
-//var_dump(exercise9(1, 5));
+//        $arr = [];
+        for($i = $start; $i < $dif; $i--){
+            echo $start;
+            $start--;
+//            var_dump($arr);
+        };
+    };
+};
+//exercise9(10, 5);
 function exercise10(int $number): void
 {
     /*
@@ -180,8 +186,18 @@ function exercise10(int $number): void
     ...
     60
     */
+    if($number < 0){
+        echo '';
+    } else {
+      for ($i = 1; $i < $number + 1; $i++){
+          if($i % 3 === 0){
+              echo $i . PHP_EOL;
+          }
+      }
+    };
 }
 
+exercise10(60);
 function exercise11(int $number): void
 {
     /*
