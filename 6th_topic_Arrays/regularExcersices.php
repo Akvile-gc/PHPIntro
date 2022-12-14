@@ -13,7 +13,7 @@ function exercise1(): int
     return $numbers[3];
 }
 
-var_dump(exercise1());
+//var_dump(exercise1());
 
 
 
@@ -28,7 +28,7 @@ function exercise2(): int
     return $numbers['three'];
 }
 
-var_dump(exercise2());
+//var_dump(exercise2());
 
 function exercise3(): int
 {
@@ -50,7 +50,7 @@ function exercise3(): int
     return $numbers[2][1][2];
 }
 
-var_dump(exercise3());
+//var_dump(exercise3());
 
 function exercise4(): int
 {
@@ -69,10 +69,10 @@ function exercise4(): int
         ],
     ];
 
-    return 0;
+    return $numbers['fourth']['value_2']['ninetynine'];
 }
 
-
+var_dump(exercise4());
 function exercise5(): int
 {
     /*
