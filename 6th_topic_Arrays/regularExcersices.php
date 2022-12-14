@@ -72,7 +72,8 @@ function exercise4(): int
     return $numbers['fourth']['value_2']['ninetynine'];
 }
 
-var_dump(exercise4());
+//var_dump(exercise4());
+
 function exercise5(): int
 {
     /*
@@ -90,8 +91,10 @@ function exercise5(): int
         ],
     ];
 
-    return 0;
+    return $numbers['fourth']['value_6'][0];
 }
+
+var_dump(exercise5());
 
 function exercise6(): int
 {
