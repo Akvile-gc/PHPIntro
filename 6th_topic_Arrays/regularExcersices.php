@@ -163,11 +163,9 @@ function exercise9(int $start, int $end): void
         echo '';
     } else {
         $dif = $start - $end;
-//        $arr = [];
         for($i = $start; $i < $dif; $i--){
             echo $start;
             $start--;
-//            var_dump($arr);
         };
     };
 };
@@ -197,7 +195,7 @@ function exercise10(int $number): void
     };
 }
 
-exercise10(60);
+//exercise10(60);
 function exercise11(int $number): void
 {
     /*
@@ -212,8 +210,15 @@ function exercise11(int $number): void
     1
     0
     */
+    if($number < 0){
+        echo '';
+    } else {
+        for($i = $number; $i >= 0; $i--){
+            echo $i . PHP_EOL;
+        }
+    }
 }
-
+exercise11(21);
 function getNumbers(): array
 {
     return [
