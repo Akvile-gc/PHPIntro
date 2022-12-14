@@ -167,7 +167,7 @@ function exercise9(int $start, int $end): void
         };
     };
 };
-exercise9(10, 5);
+//exercise9(10, 5);
 function exercise10(int $number): void
 {
     /*
@@ -241,3 +241,27 @@ Masyvą gausite iškvietę funkciją 'getNumbers'
 16. Raskite ir grąžinkite masyvo narių vidurkį. Neigiamus skaičius paverskite į teigiamus
 17. Į masyvą pridėkite naują narį - skaičiu 255 - ir išspausdinkite masyva pasinaudodami funkcija 'printr'
 */
+
+function exercise12(array $yourArray): int
+{
+    $sum = 0;
+    foreach ($yourArray as $num){
+      $sum = $sum + $num;
+    }
+    return $sum;
+};
+
+var_dump(exercise12(getNumbers()));
+
+function exercise13(array $yourArray): int
+{
+    $sum = 0;
+    foreach ($yourArray as $num){
+        if($num % 2 === 0){
+            $sum = $sum + $num;
+        }
+    }
+    return $sum;
+};
+
+var_dump(exercise13(getNumbers()));
