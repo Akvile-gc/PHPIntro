@@ -98,7 +98,7 @@ function exercise4(string $key): string
     }
 }
 
-var_dump(exercise4('product_2'));
+//var_dump(exercise4('product_2'));
 function exercise5(): array
 {
     $transactions = [
@@ -126,9 +126,13 @@ function exercise5(): array
     ];
     */
 
-    return [];
+    foreach ($transactions as $key => $transaction){
+        $transactions[$key]['total'] = $transaction['count'] * $transaction['price'];
+    }
+    return $transactions;
 }
 
+var_dump(exercise5());
 function exercise6(): array
 {
     $currencyRates = [
