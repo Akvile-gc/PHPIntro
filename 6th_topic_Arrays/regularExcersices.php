@@ -236,10 +236,6 @@ Kiekviena užduoties dalis turi būti funkcija. Tęskite funkcijų numeraciją: 
 Masyvą gausite iškvietę funkciją 'getNumbers'
 12. Raskite ir grąžinkite visų masyvo narių sumą
 13. Raskite ir grąžinkite lyginių masyvo narių sumą
-14. Raskite ir grąžinkite teigiamų masyvo narių sumą
-15. Raskite ir grąžinkite sandaugą tų masyvo narių, kurie dalijasi iš 5
-16. Raskite ir grąžinkite masyvo narių vidurkį. Neigiamus skaičius paverskite į teigiamus
-17. Į masyvą pridėkite naują narį - skaičiu 255 - ir išspausdinkite masyva pasinaudodami funkcija 'printr'
 */
 
 function exercise12(array $yourArray): int
@@ -251,7 +247,7 @@ function exercise12(array $yourArray): int
     return $sum;
 };
 
-var_dump(exercise12(getNumbers()));
+//var_dump(exercise12(getNumbers()));
 
 function exercise13(array $yourArray): int
 {
@@ -264,4 +260,21 @@ function exercise13(array $yourArray): int
     return $sum;
 };
 
-var_dump(exercise13(getNumbers()));
+//var_dump(exercise13(getNumbers()));
+
+//14. Raskite ir grąžinkite teigiamų masyvo narių sumą
+function exercise14(array $yourArray): int
+{
+    $sum = 0;
+    foreach ($yourArray as $num){
+        if($num > 0){
+            $sum = $sum + $num;
+        }
+    }
+    return $sum;
+};
+
+var_dump(exercise14(getNumbers()));
+//15. Raskite ir grąžinkite sandaugą tų masyvo narių, kurie dalijasi iš 5
+//16. Raskite ir grąžinkite masyvo narių vidurkį. Neigiamus skaičius paverskite į teigiamus
+//17. Į masyvą pridėkite naują narį - skaičiu 255 - ir išspausdinkite masyva pasinaudodami funkcija 'printr'
