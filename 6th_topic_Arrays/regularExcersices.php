@@ -289,5 +289,22 @@ function exercise15(array $yourArray): int
 };
 
 //var_dump(exercise15(getNumbers()));
+
 //16. Raskite ir grąžinkite masyvo narių vidurkį. Neigiamus skaičius paverskite į teigiamus
+function exercise16(array $yourArray): int
+{
+    $sum = 0;
+    foreach ($yourArray as $num){
+        if($num < 0) {
+            $num = -$num;
+            $sum = $sum + $num;
+        } else {
+            $sum = $sum + $num;
+        }
+    }
+    $average = $sum / count($yourArray);
+    return $average;
+};
+var_dump(exercise16(getNumbers()));
+
 //17. Į masyvą pridėkite naują narį - skaičiu 255 - ir išspausdinkite masyva pasinaudodami funkcija 'printr'
