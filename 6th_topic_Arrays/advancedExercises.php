@@ -77,7 +77,7 @@ function exercise3(): array
     return $transactions;
 }
 
-var_dump(exercise3());
+//var_dump(exercise3());
 
 function exercise4(string $key): string
 {
@@ -91,10 +91,14 @@ function exercise4(string $key): string
     Jeigu paduotas raktas neegzistuoja $products masyve, gražinkite tekstą 'Item not found'.
     Funkcijos kvietimas: exercise4('product_2')
     */
-
-    return '';
+    if($products[$key]){
+        return $products[$key];
+    } else {
+        return 'Item not found';
+    }
 }
 
+var_dump(exercise4('product_2'));
 function exercise5(): array
 {
     $transactions = [
