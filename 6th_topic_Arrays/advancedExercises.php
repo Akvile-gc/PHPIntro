@@ -183,10 +183,17 @@ function exercise6(): array
     return $transactions;
 }
 
-var_dump(exercise6());
+//var_dump(exercise6());
+
 function exercise7(array $collection): array
 {
+    foreach ($collection as $key => $item){
+        $collection[$item['name']] = $collection[$key];
+        unset($collection[$key]);
+        $collection[$item['name']] = ['price' => $item['price']];
+    };
     /*
+    Funkcijai paduodama produktų kolekcija:
     Funkcijai paduodama produktų kolekcija:
     $productCollection = [
         [
@@ -205,8 +212,21 @@ function exercise7(array $collection): array
     ]
     */
 
-    return [];
+    return $collection;
 }
+
+$productCollection = [
+    [
+        'name' => 'Best sofa',
+        'price' => 55,
+    ],
+    [
+        'name' => 'Worst sofa',
+        'price' => 5,
+    ],
+];
+
+var_dump(exercise7($productCollection));
 
 function exercise8(): array
 {
