@@ -132,7 +132,7 @@ function exercise5(): array
     return $transactions;
 }
 
-var_dump(exercise5());
+//var_dump(exercise5());
 function exercise6(): array
 {
     $currencyRates = [
@@ -172,9 +172,18 @@ function exercise6(): array
     ];
     */
 
-    return [];
+    foreach ($transactions as $key => $transaction){
+        $sumInEur = $transaction['count'] * $transaction['price'];
+        $transactions[$key]['totals'] = [
+            'eur' => round($sumInEur, 2),
+            'usd' => round(($sumInEur * $currencyRates['usd']), 2),
+            'gbp' => round(($sumInEur * $currencyRates['gbp']), 2),
+            ];
+    }
+    return $transactions;
 }
 
+var_dump(exercise6());
 function exercise7(array $collection): array
 {
     /*
