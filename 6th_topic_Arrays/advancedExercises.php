@@ -49,7 +49,7 @@ function exercise2(int $keyPart): array
     return $products;
 }
 
-var_dump(exercise2(1));
+//var_dump(exercise2(1));
 
 function exercise3(): array
 {
@@ -64,21 +64,20 @@ function exercise3(): array
         ],
     ];
 
-//    foreach ($transactions as $key => $transaction){
-//        if($key['status'] === 'error'){
-//            unset($transactions[$key]);
-//        }
-//    }
+    foreach ($transactions as $key => $transaction){
+        if($transaction['status'] === 'error'){
+                unset($transactions[$key]);
+        };
+    };
 
     /*
     Sunaikinkitę visus elementus, kurių reikšmė yra 'error' ir grąžinkite pamodifikuotą masyvą.
     Tikėkitės, kad $products masyvas gali turėti ne 5, 100 elementų - naudokite ciklą.
     */
-
     return $transactions;
 }
 
-//var_dump(exercise3());
+var_dump(exercise3());
 
 function exercise4(string $key): string
 {
