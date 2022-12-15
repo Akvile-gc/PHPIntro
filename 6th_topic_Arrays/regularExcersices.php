@@ -305,6 +305,14 @@ function exercise16(array $yourArray): int
     $average = $sum / count($yourArray);
     return $average;
 };
-var_dump(exercise16(getNumbers()));
+//var_dump(exercise16(getNumbers()));
 
 //17. Į masyvą pridėkite naują narį - skaičiu 255 - ir išspausdinkite masyva pasinaudodami funkcija 'printr'
+
+function exercise17(array $yourArray): void
+{
+    $yourArray[] = 255;
+    print_r($yourArray);
+}
+
+echo exercise17(getNumbers());
