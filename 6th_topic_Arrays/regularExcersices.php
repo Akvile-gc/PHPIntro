@@ -254,7 +254,7 @@ function exercise13(array $yourArray): int
     $sum = 0;
     foreach ($yourArray as $num){
         if($num % 2 === 0){
-            $sum = $sum + $num;
+            $sum += $num;
         }
     }
     return $sum;
@@ -315,4 +315,4 @@ function exercise17(array $yourArray): void
     print_r($yourArray);
 }
 
-echo exercise17(getNumbers());
+//echo exercise17(getNumbers());
