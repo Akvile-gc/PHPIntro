@@ -258,7 +258,7 @@ function exercise8(): array
     return $products;
 }
 
-var_dump(exercise8());
+//var_dump(exercise8());
 function exercise9(): void
 {
     $animals = [
@@ -294,8 +294,23 @@ function exercise9(): void
     land: chimp dog cat
     water: shark hippo crocodile
     */
+    foreach ($animals as $key => $animal){
+        $land = '';
+        $water = '';
+
+        if($animal['type'] === 'land'){
+            $land = "land: " . $land . ' ' . $animal['name'];
+            echo $land . PHP_EOL;
+        } elseif ($animal['type'] === 'water'){
+            $water = "water: " . $water . ' ' . $animal['name'];
+            echo $water . PHP_EOL;
+        } else {
+            echo 'It is a different kind of animal';
+        };
+    };
 }
 
+exercise9();
 function getProducts(): array
 {
     return [
