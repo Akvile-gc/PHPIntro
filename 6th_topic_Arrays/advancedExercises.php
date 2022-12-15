@@ -226,7 +226,7 @@ $productCollection = [
     ],
 ];
 
-var_dump(exercise7($productCollection));
+//var_dump(exercise7($productCollection));
 
 function exercise8(): array
 {
@@ -249,10 +249,16 @@ function exercise8(): array
         ...
     ]
     */
-
-    return [];
+    foreach ($products as $key => $product){
+        $products[$product] = $products[$key];
+        unset($products[$key]);
+        $products[$product] = str_split($product);
+//        $products[$product] = [explode("", $product)];
+    }
+    return $products;
 }
 
+var_dump(exercise8());
 function exercise9(): void
 {
     $animals = [
