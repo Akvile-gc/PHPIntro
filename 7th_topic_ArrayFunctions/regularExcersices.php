@@ -59,15 +59,24 @@ function exercise2(array $array): int
     return $population;
 }
 
-var_dump(exercise2(getCities()));
-function exercise3(): int
+//var_dump(exercise2(getCities()));
+function exercise3(array $array): int
 {
     /*
     Suskaičiuokite bendrą miestų populiaciją pasinaudodami funkcija array_reduce ir grąžinkite ją iš funkcijos
     */
+    $population = array_reduce($array, function(int $singlePop, array $cities)
+        {
+            $sum = $singlePop + $cities['population'];
+            return $sum;
+        },
+        0,
+    );
 
-    return 0;
+    return $population;
 }
+
+var_dump(exercise3(getCities()));
 
 function exercise4(): int
 {
