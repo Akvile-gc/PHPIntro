@@ -32,7 +32,7 @@ function getCities(): array
     ];
 }
 
-function exercise1($array): int
+function exercise1(array $array): int
 {
     /*
     Suskaičiuokite bendrą miestų populiaciją pasinaudodami paprastu 'foreach' ir grąžinkite ją iš funkcijos.
@@ -42,23 +42,24 @@ function exercise1($array): int
 
     foreach ($array as $item){
         $sum += $item['population'];
-        return $sum;
     };
 
     return $sum;
 }
 
-var_dump(exercise1(getCities()));
-function exercise2(): int
+//var_dump(exercise1(getCities()));
+function exercise2(array $array): int
 {
     /*
     Suskaičiuokite bendrą miestų populiaciją pasinaudodami funkcijomis array_column ir array_sum
     ir grąžinkite ją iš funkcijos
     */
+    $population = array_sum(array_column($array,'population'));
 
-    return 0;
+    return $population;
 }
 
+var_dump(exercise2(getCities()));
 function exercise3(): int
 {
     /*
