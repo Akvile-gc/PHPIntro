@@ -123,7 +123,7 @@ function exercise5(): array
     return $array;
 }
 
-var_dump(exercise5());
+//var_dump(exercise5());
 function exercise6(): int
 {
 
@@ -133,6 +133,7 @@ function exercise6(): int
     Kitoms prekėms taikykite kainą 'priceRegular'.
     Bandykite panaudoti array_* funkcijas.
     */
+
 
     $lowPriceItems = ['t-shirt', 'shoes'];
 
@@ -164,5 +165,41 @@ function exercise6(): int
     ];
 
 
+//    $itemsTotal = array_map(function(array $items)
+//        {
+//            $items['totalLow'] = $items['priceLow'] * $items['quantity'];
+//            $items['totalReg'] = $items['priceRegular'] * $items['quantity'];
+//            return $items;
+//        },
+//        $orderItems
+//    );
+
+    $lowItems = array_filter($orderItems, function(array $item)
+        {
+            if(array_search($item['name'], $lowPriceItems, true))
+
+        }
+    );
+
+    $total = array_reduce($orderItems, function(int $price, array $item)
+        {
+
+        }
+    );
+
+//    $sum = 0;
+//
+//    foreach($orderItems as $key => $item){
+//        if(array_search($orderItems[$key]['name'], $lowPriceItems, true)){
+//            $sum += ($item['priceLow'] * $item['quantity']);
+//        } else {
+//            $sum += ($item['priceRegular'] * $item['quantity']);
+//        }
+//    }
+//
+//    return $sum;
+    //it looks like it's counting t-shirt with regular price. Why?
     return 0;
 }
+
+var_dump(exercise6());
