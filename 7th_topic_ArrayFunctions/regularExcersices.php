@@ -96,7 +96,7 @@ function exercise4(): int
     return $sum;
 }
 
-var_dump(exercise4());
+//var_dump(exercise4());
 function exercise5(): array
 {
     /*
@@ -110,10 +110,20 @@ function exercise5(): array
         ...
     ]
     */
+    $getCities = getCities();
 
-    return [];
+    $array = array_filter($getCities, function(array $city)
+        {
+            if($city['population'] > 25e6){
+                return true;
+            }
+        }
+    );
+
+    return $array;
 }
 
+var_dump(exercise5());
 function exercise6(): int
 {
 
