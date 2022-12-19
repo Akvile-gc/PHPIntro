@@ -76,7 +76,7 @@ function exercise3(array $array): int
     return $population;
 }
 
-var_dump(exercise3(getCities()));
+//var_dump(exercise3(getCities()));
 
 function exercise4(): int
 {
@@ -84,10 +84,19 @@ function exercise4(): int
     Suskaičiuokite populiaciją miestų, kurie yra didesni nei 25,000,000 gyventojų.
     Rinkites sau patogiausią skaičiavimo būdą.
     */
+    $getCities = getCities();
 
-    return 0;
+    $sum = 0;
+    foreach($getCities as $city){
+        if($city['population'] > 25000000) {
+            $sum += $city['population'];
+        }
+    }
+
+    return $sum;
 }
 
+var_dump(exercise4());
 function exercise5(): array
 {
     /*
