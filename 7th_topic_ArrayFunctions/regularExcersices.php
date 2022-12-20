@@ -78,25 +78,39 @@ function exercise3(array $array): int
 
 //var_dump(exercise3(getCities()));
 
-function exercise4(): int
+function exercise4(array $array): int
 {
+    $filtered = array_filter($array, function(array $value){
+        if($value['population'] > 25e6)
+            return true;
+    }
+    );
+
+    $total = array_reduce($filtered, function(int $acc, array $cur){
+      $pop = $acc + $cur['population'];
+      return $pop;
+    },
+    0,
+    );
     /*
     Suskaičiuokite populiaciją miestų, kurie yra didesni nei 25,000,000 gyventojų.
     Rinkites sau patogiausią skaičiavimo būdą.
     */
-    $getCities = getCities();
 
-    $sum = 0;
-    foreach($getCities as $city){
-        if($city['population'] > 25000000) {
-            $sum += $city['population'];
-        }
-    }
 
-    return $sum;
+//    $getCities = getCities();
+//    $sum = 0;
+//    foreach($getCities as $city){
+//        if($city['population'] > 25000000) {
+//            $sum += $city['population'];
+//        }
+//    }
+//
+//    return $sum;
+    return $total;
 }
 
-//var_dump(exercise4());
+//var_dump(exercise4(getCities()));
 function exercise5(): array
 {
     /*
@@ -164,29 +178,23 @@ function exercise6(): int
         ],
     ];
 
-
-//    $itemsTotal = array_map(function(array $items)
-//        {
-//            $items['totalLow'] = $items['priceLow'] * $items['quantity'];
-//            $items['totalReg'] = $items['priceRegular'] * $items['quantity'];
-//            return $items;
-//        },
-//        $orderItems
-//    );
-
-    $lowItems = array_filter($orderItems, function(array $item)
+    $totalSum = array_reduce($orderItems, function (int $acc, array $item)
         {
-            if(array_search($item['name'], $lowPriceItems, true))
-
-        }
+            if($item['name'] === 't-shirt' || $item['name'] === 'shoes'){
+                $low = $item['priceLow'] * $item['quantity'];
+                return $acc + $low;
+            }
+            if($item['name'] !== 't-shirt' && $item['name'] !== 'shoes'){
+                $reg = $item['priceRegular'] * $item['quantity'];
+                return $acc + $reg;
+            }
+            return $acc;
+        },
+        0,
     );
 
-    $total = array_reduce($orderItems, function(int $price, array $item)
-        {
-
-        }
-    );
-
+    return $totalSum;
+    //easy way
 //    $sum = 0;
 //
 //    foreach($orderItems as $key => $item){
@@ -199,7 +207,6 @@ function exercise6(): int
 //
 //    return $sum;
     //it looks like it's counting t-shirt with regular price. Why?
-    return 0;
 }
 
 var_dump(exercise6());
