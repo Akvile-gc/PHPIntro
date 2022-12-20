@@ -183,12 +183,10 @@ function exercise6(): int
             if($item['name'] === 't-shirt' || $item['name'] === 'shoes'){
                 $low = $item['priceLow'] * $item['quantity'];
                 return $acc + $low;
-            }
-            if($item['name'] !== 't-shirt' && $item['name'] !== 'shoes'){
+            } else {
                 $reg = $item['priceRegular'] * $item['quantity'];
                 return $acc + $reg;
             }
-            return $acc;
         },
         0,
     );
