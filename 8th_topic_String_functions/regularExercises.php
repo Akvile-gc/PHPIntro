@@ -12,7 +12,26 @@ $someProducts = [
     ',
 ];
 
-function exercise1(): array
+function exercise1(array $products)
+{
+    /*
+    Suskaičiuokite ir grąžinkite visų $products masyve esančių eilučių ilgių sumą, BET
+    į sumą neįtraukite tuščių simbolių - ty. tarpų, new line ir pan.
+    Naudokite $someProducts masyvą.
+    */
+
+    $sum = 0;
+
+    foreach ($products as $product)
+    {
+        $clean = trim($product);
+        $sentence = strlen($clean);
+        $sum += $sentence;
+    }
+    return $sum;
+}
+//var_dump(exercise1($someProducts));
+function exercise2(): array
 {
     /*
     Išskaidykite $longLine kintamajį į atskirus žodžius. Žodžiai turi grįžti iš funkcijos masyvo formoje.
@@ -23,8 +42,8 @@ function exercise1(): array
     return explode('_', $longLine);
 }
 
-var_dump(exercise1());
-function exercise2(): array
+//var_dump(exercise2());
+function exercise3(): array
 {
     /*
     Grąžinkite masyvą, kuris talpintų tik tuos žodžius, kurie panašūs į emailų adresus
@@ -38,10 +57,18 @@ function exercise2(): array
         'real@gmail.com',
     ];
 
-    return [];
+    $goodEmails = array_filter($emails, function(string $email)
+    {
+        if(str_contains($email, '@')){
+            return true;
+        }
+    },
+    );
+    return $goodEmails;
 }
+//var_dump(exercise3());
 
-function exercise3(array $products): int
+function exercise4(array $products): int
 {
     /*
     Suskaičiuokite ir grąžinkite visų $products masyve esančių eilučių ilgių sumą.
@@ -51,7 +78,7 @@ function exercise3(array $products): int
     return 0;
 }
 
-function exercise4(): array
+//function exercise4(): array
 {
     /*
     Kiekvienam žodžiui apskaičiuokite balsių skaičių (a, e, i, o, u)
@@ -70,7 +97,7 @@ function exercise4(): array
     return [];
 }
 
-function exercise5(array $products): int
+function exercise6(array $products): int
 {
     /*
     Suskaičiuokite ir grąžinkite visų $products masyve esančių eilučių ilgių sumą, BET
@@ -81,7 +108,7 @@ function exercise5(array $products): int
     return 0;
 }
 
-function exercise6(): int
+function exercise7(): int
 {
     $text = 'The African philosophy of Ubuntu has its roots in the Nguni word for being human.
     The concept emphasises the significance of our community and shared humanity and teaches
