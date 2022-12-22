@@ -75,14 +75,24 @@ function exercise4(array $products): int
     Naudokite $someProducts masyvą
     */
 
-    return 0;
+    $totalSymbols = array_reduce($products, function(int $initialNum, string $product)
+        {
+            $sentence = strlen($product);
+            return $initialNum + $sentence;
+        },
+        0,
+    );
+
+    return $totalSymbols;
 }
 
-//function exercise4(): array
+//var_dump(exercise4($someProducts));
+
+function exercise5(): array
 {
     /*
     Kiekvienam žodžiui apskaičiuokite balsių skaičių (a, e, i, o, u)
-    Funkcijos kvietimas: exercise4()
+    Funkcijos kvietimas: exercise5()
     Funkcija grąžina: [2, 3, 3, 1, 2]
     */
 
@@ -94,9 +104,28 @@ function exercise4(array $products): int
         'friends',
     ];
 
-    return [];
-}
+    $letters = ['a', 'e', 'i', 'o', 'u'];
+    $result = [];
 
+    foreach ($words as $key => $word) {
+        $seperated = str_split($word, 1);
+        $result[$key] = [0];
+        $sum = 0;
+        foreach ($seperated as $i => $symbol) {
+            if (in_array($symbol, $letters, true)) {
+                $sum += strlen($symbol);
+                $result[$key] = $sum;
+            };
+        };
+//        $vowels = preg_match_all('/[aeiou]/i',$word);
+//        echo $vowels . PHP_EOL;
+    };
+    var_dump($result);
+        return $result;
+
+//    return $words;
+}
+//exercise5();
 function exercise6(array $products): int
 {
     /*
@@ -105,8 +134,17 @@ function exercise6(array $products): int
     Naudokite $someProducts masyvą.
     */
 
-    return 0;
+    $allSum = array_reduce($products, function(int $initial, string $product)
+        {
+            $clean = trim($product);
+            $sentence = strlen($clean);
+            return $initial + $sentence;
+        },
+        0,
+    );
+    return $allSum;
 }
+//var_dump(exercise6($someProducts));
 
 function exercise7(): int
 {
@@ -119,5 +157,31 @@ function exercise7(): int
     Suskaičiuokite kiek balsių yra tekste
     */
 
-    return 0;
+    $letters = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    $seperated = str_split($text, 1);
+    $result = 0;
+
+    foreach ($seperated as $symbol) {
+        if (in_array($symbol, $letters, true))
+            $result += strlen($symbol);
+    };
+
+//        foreach($letters as $letter){
+//            if(stripos($text, $letter)){
+//                $result++;
+//            }
+//            echo $result;
+//        }
+//    }
+//
+//    for($i = 0; $i < strlen($text); $i++){
+//        if (str_contains($text, $letters[0])) {
+//            $result++;
+////            echo $result . PHP_EOL;
+//        }
+//    };
+    var_dump($result);
+    return $result;
 }
+
+exercise7();
