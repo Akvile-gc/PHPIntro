@@ -294,23 +294,22 @@ function exercise9(): void
     land: chimp dog cat
     water: shark hippo crocodile
     */
-    foreach ($animals as $key => $animal){
-        $land = '';
-        $water = '';
+    $land = 'land: ';
+    $water = 'water: ';
 
+    foreach ($animals as $key => $animal){
         if($animal['type'] === 'land'){
-            $land = "land: " . $land . ' ' . $animal['name'];
-            echo $land . PHP_EOL;
+            $land = $land . ' ' . $animal['name'];
         } elseif ($animal['type'] === 'water'){
-            $water = "water: " . $water . ' ' . $animal['name'];
-            echo $water . PHP_EOL;
-        } else {
-            echo 'It is a different kind of animal';
-        };
+            $water = $water. ' ' . $animal['name'];
+        }
     };
+
+    echo $land . PHP_EOL;
+    echo $water . PHP_EOL;
 }
 
-exercise9();
+//exercise9();
 function getProducts(): array
 {
     return [
@@ -343,20 +342,37 @@ function exercise10(): array
         'price' => 200,
     ]
     */
-
-    return [];
+    $products[] = [
+        'fridge' => [
+            'type' => 'appliance',
+            'name' => 'Coolest fridge',
+            'price' => 200,
+        ],
+    ];
+    var_dump($products);
+    return $products;
 }
+//exercise10();
 
 function exercise11(): int
 {
     $products = getProducts();
+    $price = array_reduce($products, function (int $acc, array $product)
+        {
+            return $acc + $product['price'];
+        },
+    0,
+    );
+
+    return (int)round($price / count($products));
+
     /*
     Raskite ir grąžinkite visų produktų kainų vidurkį
     */
 
-    return 0;
 }
 
+print_r(exercise11());
 function exercise12(): array
 {
     $products = getProducts();
