@@ -372,7 +372,7 @@ function exercise11(): int
 
 }
 
-print_r(exercise11());
+//print_r(exercise11());
 function exercise12(): array
 {
     $products = getProducts();
@@ -384,10 +384,11 @@ function exercise12(): array
         'Soft sofa',
     ]
     */
+    $onlyNames = array_column($products, 'name');
 
-    return [];
+    return $onlyNames;
 }
-
+//print_r(exercise12());
 function exercise13(): void
 {
     $products = getProducts();
@@ -395,5 +396,17 @@ function exercise13(): void
     Iteruodami per masyvą išspausdinkite eilutę, kurioje matytusi produkto pavadinimas ir tipas atskirti brūkšneliu:
     Best chair - furniture, Ultimate lamp - lighting, Soft sofa - furniture
     */
+    $lastElement = end($products);
+
+    foreach ($products as $key => $product)
+        {
+            if($product !== $lastElement)
+                {
+                    echo $product['name'] . ' - ' . $key . ', ';
+                } else {
+                    echo $product['name'] . ' - ' . $key;
+            }
+        }
 
 }
+exercise13();g
