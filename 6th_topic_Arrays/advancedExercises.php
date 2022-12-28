@@ -409,4 +409,4 @@ function exercise13(): void
         }
 
 }
-exercise13();g
+exercise13();
