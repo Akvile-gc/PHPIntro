@@ -35,7 +35,6 @@ function exercise3(): void
 {
     //1st
 //    var_dump(date(format: 'Y M j H:i:s', timestamp: 5141700));
-//    var_dump(date(format: 'Y M j H:i:s', timestamp: 5141700));
 
     //2nd
 //    var_dump(date(format: 'Y M d H:i', timestamp: 5141700));
@@ -63,9 +62,19 @@ function exercise3(): void
 */
 function exercise4(): void
 {
+    $date = new DateTime(datetime: '2000-03-02 15:30:00');
+//    var_dump($date);
+    //1st
+    $date->format(format: 'Y-m-d H:i:s'); //var_dump() for the result
+    //2nd
+    $date->modify(modifier: '-16 days 5 hours');
+    $date->format(format: 'Y/m/d h:i:s A'); //var_dump() for the result
 
+    //3rd
+    $date->modify(modifier: '16 days -5 hours');
+    var_dump($date->format(format: 'Y F jS H:i:s'));
 }
-
+exercise4();
 /*
 5. Sukurkite datą iš '15th Jan 2021 8:15:01 PM' (data X). Pamodifikuokite, kad gautumėte:
 - datą po 2 savaičių nuo datos X
