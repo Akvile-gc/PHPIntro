@@ -43,13 +43,13 @@ function exercise3(): void
 //    var_dump(date(format: 'Y M jS h:i:s A', timestamp: 5170500));
 
     //4th
-//    var_dump(date(format: 'Y/m/j', timestamp: 5094000));
+//    var_dump(date(format: 'Y/n/j', timestamp: 5094000));
 
     //5th
 //    var_dump(date(format: 'W'));
 
     //6th
-    var_dump(date(format: 'z'));
+//    var_dump(date(format: 'z'));
 
 }
 //exercise3();
@@ -62,19 +62,24 @@ function exercise3(): void
 */
 function exercise4(): void
 {
-    $date = new DateTime(datetime: '2000-03-02 15:30:00');
+//    $date = new DateTime(datetime: '2000-03-02 15:30:00');
 //    var_dump($date);
-    //1st
-    $date->format(format: 'Y-m-d H:i:s'); //var_dump() for the result
-    //2nd
-    $date->modify(modifier: '-16 days 5 hours');
-    $date->format(format: 'Y/m/d h:i:s A'); //var_dump() for the result
+//    //1st
+//    $date->format(format: 'Y-m-d H:i:s'); //var_dump() for the result
+//    //2nd
+//    $date->modify(modifier: '-16 days 5 hours');
+//    $date->format(format: 'Y/m/d h:i:s A'); //var_dump() for the result
+//
+//    //3rd
+//    $date->modify(modifier: '16 days -5 hours');
+//    var_dump($date->format(format: 'Y F jS H:i:s'));
 
-    //3rd
-    $date->modify(modifier: '16 days -5 hours');
-    var_dump($date->format(format: 'Y F jS H:i:s'));
+
+//    var_dump(new DateTime('2000-03-02 15:30:00'));
+//    var_dump(new DateTime('2000/02/15 08:30:00 PM'));
+    var_dump(new DateTime(datetime: '2000 March 2nd 15:30:00'));
 }
-exercise4();
+//exercise4();
 /*
 5. Sukurkite datą iš '15th Jan 2021 8:15:01 PM' (data X). Pamodifikuokite, kad gautumėte:
 - datą po 2 savaičių nuo datos X
@@ -88,9 +93,28 @@ exercise4();
 
 function exercise5(): void
 {
+    $x = '15th Jan 2021 8:15:01 PM';
+    $date = new DateTime($x);
+    //1st
+//    $date->modify(modifier: '-2 weeks');
+    //2nd
+//    $date->modify(modifier: '10 years');
+    //3rd
+//    $date->modify(modifier: '-5 hours');
+
+
+//    var_dump($date->format(format: 'Y M jS h:i:s A'));
+    //4th
+//    var_dump($date->modify(modifier: 'last day of this month'));
+    //5th
+//    var_dump($date->modify(modifier: 'first day of this month'));
+    //6th
+//    var_dump($date->modify(modifier: 'next Tuesday'));
+    //7th
+    var_dump($date->modify(modifier: '-1 day -8 hours -15 minutes'));
 
 }
-
+//exercise5();
 function exercise6(): void
 {
     $products = [
@@ -108,6 +132,12 @@ function exercise6(): void
         ],
     ];
 
+    foreach ($products as $product)
+        {
+            $date = date_create_from_format('Y M d H:i:s', $product['last_purchase']);
+            echo $product['name'] . ' ' . $date->format('Y-m-d H:i:s') . PHP_EOL;
+        }
+
     /*
     Išspausdinkite produktų paskutinių pirkimų santrauką:
     Wine glass 2021-01-15 18:34:12
@@ -115,6 +145,7 @@ function exercise6(): void
     */
 }
 
+exercise6();
 function exercise7($date1, $date2): string
 {
     /*
