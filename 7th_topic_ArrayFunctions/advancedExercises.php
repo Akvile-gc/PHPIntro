@@ -69,9 +69,9 @@ function exercise2(array $array): float
     return $total;
 }
 
-exercise2(getShoppingCart());
+//exercise2(getShoppingCart());
 
-function exercise3(): float
+function exercise3(array $array): float
 {
 
     /*
@@ -85,9 +85,31 @@ function exercise3(): float
     Naudojama tik viena, didžiausia su krepšeliu susieta nuolaida ('cartDiscounts').
     */
 
-    return 0;
-}
+    $total = 0;
 
+    foreach ($array as $key => $element)
+    {
+        foreach ($element as $single_item)
+        {
+            if (is_array($single_item)){
+                if(array_key_exists('price', $single_item) && array_key_exists('quantity', $single_item)){
+                    $item_total = $single_item['price'] * $single_item['quantity'];
+                    if (array_key_exists('discount', $single_item)){
+                        $discounted = $item_total * $single_item['discount'] / 100;
+                        $total += $discounted;
+                    } else {
+                        $total += $item_total;
+                    }
+                }
+            }
+        }
+    }
+
+    $final_price = $total * max(end($array)) / 100;
+    print_r(number_format($final_price, 2));
+    return $final_price;
+}
+exercise3(getShoppingCart());
 function exercise4(array $newIpList): array
 {
     $existingIpList = [
