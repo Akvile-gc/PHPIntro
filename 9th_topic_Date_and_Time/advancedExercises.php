@@ -101,7 +101,7 @@ function exercise2(bool $showOnlyDays): void
         }
     }
 }
-exercise2(false);
+//exercise2(false);
 function exercise3(int $numberOfCycles): void
 {
     /*
@@ -109,4 +109,20 @@ function exercise3(int $numberOfCycles): void
     Trukmę apvalinkite iki milisekundžių.
     Pridėkite parametrui $numberOfCycles numatytąją reikšmę 1000000.
     */
+    $cycle = $numberOfCycles;
+
+    //starting the timer
+    $start = hrtime(true);
+
+    //running the empty cycle
+    for($i = 0; $i < $cycle; $i++){
+    }
+
+    //finishing the timer
+    $end = hrtime(true);
+
+    $duration = $end - $start;
+    echo $duration / 1e6; //rounded to milliseconds
 }
+
+exercise3(1000000);
