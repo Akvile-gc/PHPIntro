@@ -23,11 +23,20 @@ function exercise1(): array
         ],
     ];
 
+    $latest_products = [];
+
     $date_current = new DateTime();
     foreach ($products as $key => $product)
         {
+            $date_purchase = date_create_from_format('Y M d H:i:s', $product['last_purchase']);
+            //format to the year
+            $purchase_year = $date_purchase->format('Y');
+            $current_year = $date_current->format('Y');
 
-            $product['last_purchase'];
+            //compare, if the year is the same
+            if ($purchase_year === $current_year){
+                $latest_products[] = $product;
+            }
         }
 
     /*
@@ -35,9 +44,10 @@ function exercise1(): array
     Ši funkcija turėtų veikti ir bet kuriais ateinančiais metais (2023, 2024 ir t.t.)
     */
 
-    return [];
+    return $latest_products;
 }
 
+var_dump(exercise1());
 function exercise2(bool $showOnlyDays): void
 {
     $products = [
