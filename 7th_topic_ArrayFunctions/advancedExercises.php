@@ -39,8 +39,8 @@ function exercise1(array $array): void
     */
 }
 
-exercise1(getShoppingCart());
-function exercise2(): float
+//exercise1(getShoppingCart());
+function exercise2(array $array): float
 {
     /*
     Suskaičiuokite pirkimų krepšelio bendrą sumą (price * quantity)
@@ -49,8 +49,27 @@ function exercise2(): float
     Jeigu produkto laukai užvadinti kitais pavadinimais arba iš viso jų neturi, tą produktą reikia ignoruoti.
     */
 
-    return 0;
+    $total = 0;
+
+    foreach ($array as $key => $element)
+        {
+            foreach ($element as $single_item)
+                {
+                    if (is_array($single_item)){
+                        if(array_key_exists('price', $single_item) && array_key_exists('quantity', $single_item)){
+                            $item_total = $single_item['price'] * $single_item['quantity'];
+                            $total += $item_total;
+                        }
+
+                    }
+                }
+        }
+    print_r($total);
+
+    return $total;
 }
+
+exercise2(getShoppingCart());
 
 function exercise3(): float
 {
