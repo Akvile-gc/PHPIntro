@@ -157,7 +157,10 @@ function exercise7($date1, $date2): string
     Rezultatas:
     'Second date is newer'
     */
-    if($date1 > $date2){
+    $dateTime1 = new DateTime($date1);
+    $dateTime2 = new DateTime($date2);
+
+    if($dateTime1 > $dateTime2){
         echo 'First date is newer';
     } else {
         echo 'Second date is newer';
@@ -166,8 +169,8 @@ function exercise7($date1, $date2): string
     return '';
 }
 
-//exercise7(date_create('2022-01-25 17:13:25'), date_create('2020-01-25 17:13:25'));
-//exercise7(date_create('2020-01-25 17:13:25'), date_create('2022-01-25 17:13:25'));
+//exercise7('2022-01-25 17:13:25', '2020-01-25 17:13:25');
+//exercise7('2020-01-25 17:13:25', '2022-01-25 17:13:25');
 
 function exercise8($date): void
 {
@@ -181,17 +184,18 @@ function exercise8($date): void
     Supplied date is in the future
     */
     $date_current = new DateTime();
-    if ($date < $date_current){
-        $interval = $date ->diff($date_current);
+    $date_time_given = new DateTime($date);
+    if ($date_time_given < $date_current){
+        $interval = $date_time_given ->diff($date_current);
         echo 'Supplied date was ' . $interval->format('%a') . ' days ago';
-    } elseif ($date > $date_current){
+    } elseif ($date_time_given > $date_current){
         echo 'Supplied date is in the future';
     } else {
         echo 'Supplied day is today or is not a date';
     }
 }
-//exercise8(date_create('2020-01-25 17:13:25'));
-//exercise8(date_create('2023-01-25 17:13:25'));
+//exercise8('2020-01-25 17:13:25');
+//exercise8('2023-01-25 17:13:25');
 function exercise9($date): void
 {
     /*
@@ -204,14 +208,15 @@ function exercise9($date): void
     Supplied date is in the future
     */
     $date_current = new DateTime();
-    if ($date < $date_current){
-        $interval = $date ->diff($date_current);
+    $date_time_given = new DateTime($date);
+    if ($date_time_given < $date_current){
+        $interval = $date_time_given ->diff($date_current);
         echo 'Supplied date was ' . $interval->format('%y years %m months %d days');
-    } elseif ($date > $date_current){
+    } elseif ($date_time_given > $date_current){
         echo 'Supplied date is in the future';
     } else {
         echo 'Supplied day is today or is not a date';
     }
 }
-//exercise9(date_create('2020-01-25 17:13:25'));
-//exercise9(date_create('2023-01-25 17:13:25'));
+//exercise9('2020-01-25 17:13:25');
+//exercise9('2023-01-25 17:13:25');
