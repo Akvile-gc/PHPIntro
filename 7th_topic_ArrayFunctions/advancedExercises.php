@@ -109,7 +109,7 @@ function exercise3(array $array): float
     print_r(number_format($final_price, 2));
     return $final_price;
 }
-exercise3(getShoppingCart());
+//exercise3(getShoppingCart());
 function exercise4(array $newIpList): array
 {
     $existingIpList = [
@@ -140,9 +140,26 @@ function exercise4(array $newIpList): array
         'ipsRemaining' => [],
     ];
 
+    foreach ($newIpList as $newIp)
+        {
+            if(!array_search($newIp, $existingIpList, true)){
+                $result['ipsNew'] = $newIp;
+            }
+        }
+
+    foreach ($existingIpList as $existingIp)
+        {
+            if(!array_search($existingIp, $newIpList, true)){
+                $result['ipsOld'] = $existingIp;
+            }
+        }
+
+    print_r($result);
+
     return $result;
 }
 
+exercise4(['15.1.2.1', '16.1.8.1', '15.1.8.1']);
 function exercise5(): string
 {
     $words = [
