@@ -47,7 +47,7 @@ function exercise1(): array
     return $latest_products;
 }
 
-var_dump(exercise1());
+//var_dump(exercise1());
 function exercise2(bool $showOnlyDays): void
 {
     $products = [
@@ -82,8 +82,26 @@ function exercise2(bool $showOnlyDays): void
     Wine glass 51 days ago
     ...
     */
-}
 
+    $days_or_full = $showOnlyDays;
+
+    $date_current = new DateTime();
+
+    echo 'Last purchased:' . PHP_EOL;
+
+    foreach ($products as $product)
+    {
+        $date_purchase = date_create_from_format('Y M d H:i:s', $product['last_purchase']);
+        $interval = $date_purchase ->diff($date_current);
+
+        if ($days_or_full){
+            echo $product['name'], $interval->format(' %a days ago') . PHP_EOL;
+        } else {
+            echo $product['name'], $interval->format(' %y years %m months %d days ago') . PHP_EOL;
+        }
+    }
+}
+exercise2(false);
 function exercise3(int $numberOfCycles): void
 {
     /*
