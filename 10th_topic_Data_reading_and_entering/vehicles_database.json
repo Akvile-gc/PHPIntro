@@ -28,5 +28,10 @@
         "type": "passenger car",
         "name": "VW Golf",
         "weight": 1450
+    },
+    {
+        "type": "plane",
+        "name": "Airbus A320",
+        "weight": 39500
     }
 ]

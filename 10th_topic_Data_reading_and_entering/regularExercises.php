@@ -169,7 +169,7 @@ function exercise6(): array
     return $deserializedData;
 }
 
-var_dump(exercise6());g
+//var_dump(exercise6());
 
 function exercise7(): array
 {
@@ -187,6 +187,15 @@ function exercise7(): array
     - į masyvą pridėkite naują elementą ($newVehicle)
     - vėl išsaugokite visą masyvą faile vehicles_database.json
     */
+    $dataBase = './vehicles_database.json';
 
-    return [];
+    $data = file_get_contents($dataBase);
+    $deserializedData = json_decode($data, true);
+    $deserializedData[] = $newVehicle;
+    $serializedData = json_encode($deserializedData, JSON_PRETTY_PRINT);
+    file_put_contents($dataBase, $serializedData);
+
+    return $deserializedData;
 }
+
+var_dump(exercise7());
