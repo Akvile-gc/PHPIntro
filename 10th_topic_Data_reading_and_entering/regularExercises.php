@@ -15,7 +15,7 @@ function exercise1(): void
     }
 }
 
-exercise1();
+//exercise1();
 
 function exercise2(): void
 {
@@ -57,13 +57,14 @@ function exercise2(): void
         ],
     ];
 
-//    $file = 'lesson10/vehicles.txt';
-//    foreach ($vehicles as $vehicle) {
-//        file_put_contents($file, $vehicle['name'].PHP_EOL, FILE_APPEND);
-//    }
+    foreach ($vehicles as $vehicle){
+        $fileName = './vehicles.txt';
+        file_put_contents($fileName, $vehicle['name'] . PHP_EOL, FILE_APPEND);
+    }
+
 }
 
-//exercise2();
+exercise2();
 
 function exercise3(): array
 {
@@ -76,10 +77,6 @@ function exercise3(): array
         ...
     ]
     */
-//    $file = 'lesson10/vehicles.txt';
-//    $readFile = file_get_contents($file);
-//
-//    return explode(PHP_EOL, $readFile);
 }
 //print_r(exercise3());
 
