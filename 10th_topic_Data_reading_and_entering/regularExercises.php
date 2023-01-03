@@ -156,7 +156,7 @@ function exercise5(): void
     file_put_contents('./vehicles_database.json', $serializedData);
 }
 
-exercise5();
+//exercise5();
 
 function exercise6(): array
 {
@@ -164,8 +164,12 @@ function exercise6(): array
     Perskaitykite failo vehicles_database.json turinį, paverskite jį į masyvą ir grąžinkite iš funkcijos.
     */
 
-    return [];
+    $data = file_get_contents('./vehicles_database.json');
+    $deserializedData = json_decode($data, true);
+    return $deserializedData;
 }
+
+var_dump(exercise6());g
 
 function exercise7(): array
 {
