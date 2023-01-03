@@ -81,7 +81,7 @@ function exercise3(): array
     $vehicles = file_get_contents($fileName);  //getting the value
     return explode(PHP_EOL, $vehicles); // turning string to array
 }
-print_r(exercise3());
+//print_r(exercise3());
 
 /*
     Užduotis: 4
@@ -96,6 +96,22 @@ print_r(exercise3());
     Event date (YYYY-MM-DD): 2022-06-15
     Event 'birthday' is 97 days away
 */
+function exercise4(): void
+{
+    $fileName = './days_until_calculator.php';
+    $eventName = readline('Event name: ');
+    $eventDate = readline('Event date (YYYY-MM-DD): ');
+    file_put_contents($fileName, $eventName . PHP_EOL. $eventDate, FILE_APPEND);
+    $curDate = new DateTime();
+    $evDate = new DateTime($eventDate);
+
+    $days = $curDate ->diff($evDate);
+
+    echo "Event $eventName is $days days away";
+
+}
+
+//exercise4();
 
 function exercise5(): void
 {
@@ -135,7 +151,12 @@ function exercise5(): void
             'weight' => 1450
         ],
     ];
+
+    $serializedData = json_encode($vehicles, JSON_PRETTY_PRINT);
+    file_put_contents('./vehicles_database.json', $serializedData);
 }
+
+exercise5();
 
 function exercise6(): array
 {
