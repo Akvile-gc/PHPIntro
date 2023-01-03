@@ -64,7 +64,7 @@ function exercise2(): void
 
 }
 
-exercise2();
+//exercise2();
 
 function exercise3(): array
 {
@@ -77,8 +77,11 @@ function exercise3(): array
         ...
     ]
     */
+    $fileName = './vehicles.txt'; //reaching the file
+    $vehicles = file_get_contents($fileName);  //getting the value
+    return explode(PHP_EOL, $vehicles); // turning string to array
 }
-//print_r(exercise3());
+print_r(exercise3());
 
 /*
     Užduotis: 4
