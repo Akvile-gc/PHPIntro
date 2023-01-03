@@ -99,19 +99,11 @@ function exercise3(): array
 function exercise4(): void
 {
     $fileName = './days_until_calculator.php';
-    $eventName = readline('Event name: ');
-    $eventDate = readline('Event date (YYYY-MM-DD): ');
-    file_put_contents($fileName, $eventName . PHP_EOL. $eventDate, FILE_APPEND);
-    $curDate = new DateTime();
-    $evDate = new DateTime($eventDate);
-
-    $days = $curDate ->diff($evDate);
-
-    echo "Event $eventName is $days days away";
-
+    $content = '';
+    file_put_contents($fileName, $content, FILE_APPEND);
 }
 
-//exercise4();
+exercise4();
 
 function exercise5(): void
 {
@@ -198,4 +190,4 @@ function exercise7(): array
     return $deserializedData;
 }
 
-var_dump(exercise7());
+//var_dump(exercise7());
