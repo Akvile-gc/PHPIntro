@@ -1,4 +1,4 @@
-g<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -8,10 +8,15 @@ g<!DOCTYPE html>
         <title>Document</title>
     </head>
     <body>
-        <form method="POST" action="submit.php">
-            <input type="text" name="first_name" placeholder="Name">
-            <input type="text" name="surname" placeholder="Surname">
-            <input type="submit">
-        </form>
+        <?php for($i = 0; $i < 11; $i++): ?>
+            <?php if ($i % 2 === 0): ?>
+                <strong>
+                    <?php echo $i ?>
+                </strong>
+            <?php else: ?>
+                <?php echo $i ?>
+            <?php endif ?>
+            <br>
+        <?php endfor ?>
     </body>
 </html>
