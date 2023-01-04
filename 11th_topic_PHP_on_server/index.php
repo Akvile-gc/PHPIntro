@@ -13,9 +13,9 @@
                 <strong>
                     <?php echo $i ?>
                 </strong>
-            <?php else:
-                echo $i;
-            endif ?>
+            <?php else ?>
+                <?php echo $i; ?>
+            <?php endif ?>
         <br>
     <?php endfor ?>
 
