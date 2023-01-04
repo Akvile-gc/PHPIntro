@@ -13,7 +13,7 @@
                 <strong>
                     <?php echo $i ?>
                 </strong>
-            <?php else ?>
+            <?php else: ?>
                 <?php echo $i; ?>
             <?php endif ?>
         <br>
