@@ -13,6 +13,8 @@
             <legend>New TO DO</legend>
             <br>
             <input type="text" name="to_do_list">
+            <input type="date" name="to_do_date">
+            <input type="time" name="to_do_time">
             <input type="submit">
         </form>
 
@@ -23,11 +25,35 @@
 
         <div class="frame">
             <legend>TO DOs</legend>
-            <ul>
+            <table>
                 <?php foreach ($todoList as $toDoItem): ?>
-                    <li><?= $toDoItem['todo'] ?></li>
-                <?php endforeach ?>
-            </ul>
+                <tr>
+                    <td>
+                            <?= $toDoItem['todo'] ?>
+                    </td>
+                    <td>
+                        <?= 'Created at: ' . $toDoItem['created']['date']?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <?= 'Due date: ' . $toDoItem['until']?>
+                    </td>
+                    <td></td>
+                </tr>
+                    <?php endforeach ?>
+            </table>
+
+<!--            Another way to do just the list-->
+<!--            <ul>-->
+<!--                -->
+<!--                --><?php //foreach ($todoList as $toDoItem): ?>
+<!--                    <li>--><?php //= $toDoItem['todo'] . '   Created at: ' . $toDoItem['created']['date']?>
+<!--                    <br>-->
+<!--                        Due date: --><?php //=$toDoItem['until']?>
+<!--                    </li>-->
+<!--                --><?php //endforeach ?>
+<!--            </ul>-->
         </div>
     </body>
 </html>

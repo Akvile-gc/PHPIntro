@@ -9,8 +9,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <?php echo 'Form submitted!' ?>
-        <br>
+        <p>Form submitted! New thing on the list: <strong><?= $_POST['to_do_list'] ?></strong></p>
         <br>
         <button>
             <a href="index.php">Back to the list</a>
@@ -18,6 +17,9 @@
         <?php
             $file = './to_do.json'; //get file
             $todo = $_POST['to_do_list'];
+            $created = new DateTime();
+            $created -> format(format: 'Y-m-d H:i:s');
+            $until = $_POST['to_do_date'] . ' ' . $_POST['to_do_time'];
             $oldContents = file_get_contents($file); //obtain existing list
         //can var_dump just to check if it's working
             $todoList = [];
@@ -29,7 +31,7 @@
                     $todoList = [];
             }
 
-            $todoList[] = ['todo' => $todo];
+            $todoList[] = ['todo' => $todo, 'created' => $created, 'until' => $until];
             $newContents = json_encode($todoList, JSON_PRETTY_PRINT);
             file_put_contents($file, $newContents);
             ?>
