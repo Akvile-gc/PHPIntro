@@ -9,24 +9,25 @@
         <title>Document</title>
     </head>
     <body>
-        <?php if(isset($_POST['submit'])) {
-                echo $_POST['todo_list'] . PHP_EOL;
-            }
-        ?>
-        <form method="POST" action="" class="frame">
-            <legend>New TODO</legend>
+        <form method="POST" action="submit.php" class="frame">
+            <legend>New TO DO</legend>
             <br>
-            <input type="text" name="todo_list">
+            <input type="text" name="to_do_list">
             <input type="submit">
         </form>
+
+        <?php
+        $fileContents = file_get_contents('to_do.json');
+        $todoList = json_decode($fileContents, true);
+        ?>
+
         <div class="frame">
-            <legend>TODOs</legend>
-            <p>Walk the dog</p>
-            <p>Clean the house</p>
-            <p>Wash the car</p>
-
-            <?php echo $_POST['todo_list'] . PHP_EOL ?>
-
+            <legend>TO DOs</legend>
+            <ul>
+                <?php foreach ($todoList as $toDoItem): ?>
+                    <li><?= $toDoItem['todo'] ?></li>
+                <?php endforeach ?>
+            </ul>
         </div>
     </body>
 </html>
