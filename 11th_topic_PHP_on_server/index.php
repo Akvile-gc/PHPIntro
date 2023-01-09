@@ -26,13 +26,20 @@
         <div class="frame">
             <legend>TO DOs</legend>
             <table>
-                <?php foreach ($todoList as $toDoItem): ?>
+                <?php if (file_get_contents('./to_do.json')):?>
+                <?php foreach ($todoList as $key => $toDoItem): ?>
                 <tr>
                     <td>
                             <?= $toDoItem['todo'] ?>
                     </td>
                     <td>
                         <?= 'Created at: ' . $toDoItem['created']['date']?>
+                    </td>
+                    <td>
+                        <form method="POST" action="delete.php" >
+                            <input type="hidden" name="id" value="<?php echo $key ?>">
+                            <input type="submit" value="Delete">
+                        </form>
                     </td>
                 </tr>
                 <tr>
@@ -42,6 +49,7 @@
                     <td></td>
                 </tr>
                     <?php endforeach ?>
+                    <?php endif ?>
             </table>
 
 <!--            Another way to do just the list-->
