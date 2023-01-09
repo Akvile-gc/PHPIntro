@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "todo": "Learn PHP",
+        "created": {
+            "date": "2023-01-09 18:24:58.314452",
+            "timezone_type": 3,
+            "timezone": "Europe\/Berlin"
+        },
+        "until": "2023-01-10 18:00"
+    },
+    {
+        "todo": "Go to work",
+        "created": {
+            "date": "2023-01-09 20:26:52.543722",
+            "timezone_type": 3,
+            "timezone": "Europe\/Berlin"
+        },
+        "until": "2023-01-10 08:00"
+    }
+]

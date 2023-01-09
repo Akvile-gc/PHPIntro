@@ -40,6 +40,11 @@
                             <input type="hidden" name="id" value="<?php echo $key ?>">
                             <input type="submit" value="Delete">
                         </form>
+                    </td>                    <td>
+                        <form method="POST" action="edit.php" >
+                            <input type="hidden" name="editId" value="<?php echo $key ?>">
+                            <input type="submit" value="Edit">
+                        </form>
                     </td>
                 </tr>
                 <tr>
