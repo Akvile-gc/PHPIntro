@@ -2,16 +2,16 @@
     {
         "todo": "Learn PHP",
         "created": {
-            "date": "2023-01-09 18:24:58.314452",
+            "date": "2023-01-09 20:37:01.828034",
             "timezone_type": 3,
             "timezone": "Europe\/Berlin"
         },
-        "until": "2023-01-10 18:00"
+        "until": "2023-12-09 18:00"
     },
     {
-        "todo": "Go to work",
+        "todo": "Work",
         "created": {
-            "date": "2023-01-09 20:26:52.543722",
+            "date": "2023-01-09 20:48:30.685992",
             "timezone_type": 3,
             "timezone": "Europe\/Berlin"
         },

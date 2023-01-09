@@ -18,7 +18,7 @@
             $file = './to_do.json'; //get file
             $todo = $_POST['to_do_list'];
             $created = new DateTime();
-            $created -> format(format: 'Y-m-d H:i:s');
+            $created -> format('Y-m-d H:i');
             $until = $_POST['to_do_date'] . ' ' . $_POST['to_do_time'];
             $oldContents = file_get_contents($file); //obtain existing list
         //can var_dump just to check if it's working
