@@ -33,7 +33,7 @@
                             <?= $toDoItem['todo'] ?>
                     </td>
                     <td>
-                        <?= 'Created at: ' . $toDoItem['created']['date']?>
+                        <?= 'Created at: ' . $toDoItem['created']?>
                     </td>
                     <td>
                         <form method="POST" action="delete.php" >

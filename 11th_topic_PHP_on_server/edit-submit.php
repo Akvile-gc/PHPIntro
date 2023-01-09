@@ -16,11 +16,11 @@
     </button>
     <?php
 //        $item = 0;
-        $item = $_POST['new_to_do_list'];
+        $editID = $_POST['id'];
         $file = './to_do.json';
         $tasks = file_get_contents($file);
         $todoArray = json_decode($tasks, true);
-        $todoArray[$item]['todo'] = $_POST['new_to_do_list'];
+        $todoArray[$editID]['todo'] = $_POST['new_to_do_list'];
         $newContents = json_encode($todoArray, JSON_PRETTY_PRINT);
         file_put_contents($file, $newContents);
 

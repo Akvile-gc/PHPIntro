@@ -18,7 +18,7 @@
             $file = './to_do.json'; //get file
             $todo = $_POST['to_do_list'];
             $created = new DateTime();
-            $created -> format('Y-m-d H:i');
+            $createdSt =  $created -> format('Y-m-d H:i');
             $until = $_POST['to_do_date'] . ' ' . $_POST['to_do_time'];
             $oldContents = file_get_contents($file); //obtain existing list
         //can var_dump just to check if it's working
@@ -31,7 +31,7 @@
                     $todoList = [];
             }
 
-            $todoList[] = ['todo' => $todo, 'created' => $created, 'until' => $until];
+            $todoList[] = ['todo' => $todo, 'created' => $createdSt, 'until' => $until];
             $newContents = json_encode($todoList, JSON_PRETTY_PRINT);
             file_put_contents($file, $newContents);
             ?>

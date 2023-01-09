@@ -20,6 +20,7 @@
     ?>
     <form method="POST" action="edit-submit.php" class="frame">
         <legend>Edit your task:</legend>
+        <input type="hidden" name="id" value="<?php echo $task?>">
         <input type="text" name="new_to_do_list" value="<?php echo $todoArray[$task]['todo'] ?>">
         <input type="submit">
     </form>
