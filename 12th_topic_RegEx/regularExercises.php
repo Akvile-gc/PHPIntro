@@ -64,16 +64,51 @@ function exercise3(string $number):string
         return 'Wrong number';
 }
 
-foreach ($phones as $num){
-    var_dump(exercise3($num));
-}
+//foreach ($phones as $num){
+//    var_dump(exercise3($num));
+//}
 /*
 4. Parašykite funkciją, kuri užmaskuotų dalį vartotojo duomenų. Pavardės ir gimimo metų simboliai
 turėtų būti pakeisti i simbolius 'X'.
 "John Smith, 1979 05 15" --> "John XXXXX, XXXX 05 15"
+*/
+function exercise4(string $data):string
+    {
+        $matches = [];
+        $pattern = '/(\w*) (\w*), (\d{4}) (\d{2}) (\d{2})/';
+        $matched = preg_match($pattern, $data, $matches);
+        if ($matched === 0)
+            return $data;
+        $lastName = $matches[2];
+        $LastNameChanged = str_pad('', strlen($lastName), 'X');
+        return "$matches[1] $LastNameChanged, XXXX $matches[4] $matches[5]";
+//        $replace = '$1 XXXXX, XXXX $4 $5';
+//        $result = preg_replace($pattern, $replace, $data);
+//        return $result;
+    }
+//print_r(exercise4("John Smith, 1979 05 15"));
+
+/*
 5. Parašykite funkciją, kuri pravaliduotų IPv4 adresą. IPv4 adresas yra sudarytas iš 4 skaičių, kurių kiekvienas gali
 būti nuo 0 iki 255. Skaičiai atskirti taškais.
 Pvz.:
 255.255.255.255
 1.1.0.1
 */
+
+function exercise5(string $input):bool
+    {
+        $match = [];
+        $pattern = '/^\d{1-3}.\d{1-3}.\d{1-3}.\d{1-3}$/';
+        preg_match($pattern, $input, $match);
+        $segments = array_slice($match, 1);
+
+        foreach ($segments as $segment){
+            if((int)$segment > 255)
+                return false;
+        }
+        return true;
+    }
+
+//var_dump(exercise5('1.1.0.1'));
+//var_dump(exercise5('255.255.255.255'));
