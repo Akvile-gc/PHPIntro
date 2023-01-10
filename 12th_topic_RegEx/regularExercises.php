@@ -12,13 +12,32 @@ function exercise1(string $sentence):string
         $result = preg_replace($pattern, '', $sentence);
         return $result;
     }
-print_r(exercise1($text));
+//print_r(exercise1($text));
 /*
 2. Parašykite funkciją, kuri patikrintų, ar tekstas atitinka lietuviško mobilaus telefono numerio formatą
 "+37062345678" - true
 "+37012345678" - false
 "+3706234567" - false
 "+3706234567a" - false
+*/
+$numbers = ["+37062345678", "+37012345678", "+3706234567", "+3706234567a"];
+function exercise2(?string $number):bool
+    {
+        $pattern = '/\+[3][7][0][6]\d{7}/';
+        $match = preg_match($pattern, $number);
+
+        if ($match)
+            return true;
+        else
+            return false;
+
+    }
+
+foreach ($numbers as $num){
+    var_dump(exercise2($num));
+}
+
+/*
 3. Patobulinkite funkciją (2). Funkcija turėtų galėti patikrinti ir tokius telefono numerius:
 "+370 623 45678"
 "+370-623-45678"
