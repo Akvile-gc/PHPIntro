@@ -23,7 +23,7 @@ function exercise1(string $sentence):string
 $numbers = ["+37062345678", "+37012345678", "+3706234567", "+3706234567a"];
 function exercise2(?string $number):bool
     {
-        $pattern = '/\+[3][7][0][6]\d{7}/';
+        $pattern = '/^\+[3][7][0][6]\d{7}$/';
         $match = preg_match($pattern, $number);
 
         if ($match)
