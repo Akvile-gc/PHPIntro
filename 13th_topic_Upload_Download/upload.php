@@ -13,6 +13,9 @@ if (($type === 'image/jpeg' || $type === 'image/png') && $size <= 1000000){
         die();
     }
 
+    $existingData = file_get_contents('meta.json');
+    $deserializedData = json_decode($existingData, true);
+
     $uploadFileName = $_FILES['my_file']['name'];
     $fileSavePath = './data/' . uniqid() . '_' . $uploadFileName;
     $tempFilePath = $_FILES['my_file']['tmp_name'];
@@ -22,10 +25,9 @@ if (($type === 'image/jpeg' || $type === 'image/png') && $size <= 1000000){
     $formattedDate = $date -> format('Y-m-d H:i');
     $_FILES['my_file']['time'] = $formattedDate;
 
-    $metaData = [];
-    $metaData[] = $_FILES;
-    $serializedData = json_encode($metaData, JSON_PRETTY_PRINT);
-    file_put_contents('meta.php', $serializedData, FILE_APPEND);
+    $deserializedData[] = $_FILES;
+    $serializedData = json_encode($deserializedData, JSON_PRETTY_PRINT);
+    file_put_contents('meta.json', $serializedData);
     echo 'Upload successful';
 } else {
     echo 'Wrong file. Please upload jpeg or png type file which is 1MB or less';
