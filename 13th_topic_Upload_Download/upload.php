@@ -24,6 +24,8 @@ if (($type === 'image/jpeg' || $type === 'image/png') && $size <= 1000000){
     $date = new DateTime();
     $formattedDate = $date -> format('Y-m-d H:i');
     $_FILES['my_file']['time'] = $formattedDate;
+    $_FILES['my_file']['unique_id'] = uniqid() . '_' . $uploadFileName;
+
 
     $deserializedData[] = $_FILES;
     $serializedData = json_encode($deserializedData, JSON_PRETTY_PRINT);

@@ -20,5 +20,17 @@
             "size": 16227,
             "time": "2023-01-11 20:31"
         }
+    },
+    {
+        "my_file": {
+            "name": "painted_palm.png",
+            "full_path": "painted_palm.png",
+            "type": "image\/png",
+            "tmp_name": "C:\\xampp\\tmp\\phpEDC5.tmp",
+            "error": 0,
+            "size": 7028,
+            "time": "2023-01-11 20:59",
+            "unique_id": "63bf15254485b_painted_palm.png"
+        }
     }
 ]
