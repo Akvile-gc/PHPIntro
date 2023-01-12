@@ -14,8 +14,6 @@
         <?php
             $existingData = file_get_contents('meta.json');
             $deserializedData = json_decode($existingData, true);
-
-            //var_dump($deserializedData);
             foreach ($deserializedData as $file):
                 foreach ($file as $image):
         ?>
@@ -27,15 +25,15 @@
         <tr>
             <td colspan="3" class="mid">
                 <form action="./downloaded.php" method="POST">
-                    <input type="hidden" name="<?php $image['unique_id']?>">
+                    <input type="hidden" name="id" value="<?php echo $image['unique_id']?>">
                     <input type="submit" value="Download">
                 </form>
             </td>
         </tr>
         <tr>
-            <td><strong>File name: </strong> <?php echo $image['name']?></td>
-            <td><strong>File size: </strong> <?php echo $image['size']?></td>
-            <td><strong>Upload date: </strong> <?php echo $image['time']?></td>
+            <td><strong>File name: </strong><?php echo $image['name']?></td>
+            <td><strong>File size: </strong><?php echo $image['size']?></td>
+            <td><strong>Upload date: </strong><?php echo $image['time']?></td>
         </tr>
             <?php
                     endforeach;
@@ -46,10 +44,8 @@
 </body>
 </html>
 
-<?php
-////<!--2. Pridėti puslapį, kuriame būtų atvaizduojami visi pauplodinti failai. Turėtų būti matoma:-->
-////<!--- failo pavadinimas (kokį buvo priskyręs vartotojas)-->
-////<!--- failo dydis-->
-////<!--- įkėlimo data-->
-////<!--Paspaudus ant tam tikro failo turėtų jį parsiųsti į vartotojo kompiuterį.-->
-//
+<!--2. Pridėti puslapį, kuriame būtų atvaizduojami visi pauplodinti failai. Turėtų būti matoma:-->
+<!--- failo pavadinimas (kokį buvo priskyręs vartotojas)-->
+<!--- failo dydis-->
+<!--- įkėlimo data-->
+<!--Paspaudus ant tam tikro failo turėtų jį parsiųsti į vartotojo kompiuterį.-->

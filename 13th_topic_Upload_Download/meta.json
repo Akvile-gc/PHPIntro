@@ -1,26 +1,26 @@
 [
     {
         "my_file": {
-            "name": "painted_palm.png",
-            "full_path": "painted_palm.png",
-            "type": "image\/png",
-            "tmp_name": "C:\\xampp\\tmp\\phpF729.tmp",
+            "name": "palm_tree.jpg",
+            "full_path": "palm_tree.jpg",
+            "type": "image\/jpeg",
+            "tmp_name": "C:\\xampp\\tmp\\php56F0.tmp",
             "error": 0,
-            "size": 7028,
-            "time": "2023-01-12 19:02",
-            "unique_id": "63c04b2bbdee6_painted_palm.png"
+            "size": 16227,
+            "time": "2023-01-12 19:34",
+            "unique_id": "63c052b0cd86b_palm_tree.jpg"
         }
     },
     {
         "my_file": {
-            "name": "palm_tree.jpg",
-            "full_path": "palm_tree.jpg",
-            "type": "image\/jpeg",
-            "tmp_name": "C:\\xampp\\tmp\\phpF26.tmp",
+            "name": "painted_palm.png",
+            "full_path": "painted_palm.png",
+            "type": "image\/png",
+            "tmp_name": "C:\\xampp\\tmp\\php7120.tmp",
             "error": 0,
-            "size": 16227,
-            "time": "2023-01-12 19:02",
-            "unique_id": "63c04b31e3923_palm_tree.jpg"
+            "size": 7028,
+            "time": "2023-01-12 19:34",
+            "unique_id": "63c052b785301_painted_palm.png"
         }
     }
 ]
