@@ -22,5 +22,17 @@
             "time": "2023-01-12 19:34",
             "unique_id": "63c052b785301_painted_palm.png"
         }
+    },
+    {
+        "my_file": {
+            "name": "palm_tree.jpg",
+            "full_path": "palm_tree.jpg",
+            "type": "image\/jpeg",
+            "tmp_name": "C:\\xampp\\tmp\\phpE875.tmp",
+            "error": 0,
+            "size": 16227,
+            "time": "2023-01-12 20:49",
+            "unique_id": "63c0643e8bc2d_palm_tree.jpg"
+        }
     }
 ]

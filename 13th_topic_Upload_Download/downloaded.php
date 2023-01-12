@@ -7,11 +7,9 @@ foreach ($deserializedData as $file){
         if ($_POST['id'] == $image['unique_id']){
             $file = '/data/' . $image['unique_id'];
             header('Content-Type: application/octet-stream');
-//            header('Content-Type: ' . $image['type']);
             header('Content-Disposition: attachment; filename="' . basename($file) . '"');
             header('Content-Length: ' . filesize($file));
             readfile($file);
-
             die();
         }
     }

@@ -19,14 +19,21 @@
         ?>
         <tr>
             <td colspan="3" class="mid">
-                <img src="/13th_topic_Upload_Download/data/<?php echo $image['unique_id']?>">
+                <img src="../13th_topic_Upload_Download/data/<?php echo $image['unique_id']?>"/>
             </td>
         </tr>
         <tr>
-            <td colspan="3" class="mid">
+            <td class="mid">
                 <form action="./downloaded.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $image['unique_id']?>">
                     <input type="submit" value="Download">
+                </form>
+            </td>
+            <td> </td>
+            <td class="mid">
+                <form action="./deleted.php" method="POST">
+                    <input type="hidden" name="idDelete" value="<?php echo $image['unique_id']?>">
+                    <input type="submit" value="Delete">
                 </form>
             </td>
         </tr>
@@ -43,9 +50,3 @@
 
 </body>
 </html>
-
-<!--2. Pridėti puslapį, kuriame būtų atvaizduojami visi pauplodinti failai. Turėtų būti matoma:-->
-<!--- failo pavadinimas (kokį buvo priskyręs vartotojas)-->
-<!--- failo dydis-->
-<!--- įkėlimo data-->
-<!--Paspaudus ant tam tikro failo turėtų jį parsiųsti į vartotojo kompiuterį.-->
