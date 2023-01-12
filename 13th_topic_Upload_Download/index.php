@@ -13,8 +13,12 @@
         <input type="file" name="my_file">
         <input type="submit" value="Upload">
     </form>
+    <form action="./existing_files.php" method="POST">
+        <input type="hidden" name="id">
+        <input type="submit" value="Uploaded Files">
+    </form>
 
-    <button><a href="existing_files.php">Uploaded Files</a></button>
+<!--    <button><a href="existing_files.php">Uploaded Files</a></button>-->
 </body>
 </html>
 

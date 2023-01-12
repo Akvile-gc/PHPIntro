@@ -1,3 +1,20 @@
 html {
     background: black;
+    color: beige;
+}
+
+form {
+    margin: 2rem;
+}
+
+table {
+    margin: auto;
+}
+
+td {
+    padding: 1rem;
+}
+
+.mid {
+    text-align: center;
 }
