@@ -163,7 +163,7 @@ function exercise4(array $newIpList): array
     return $result;
 }
 
-exercise4(['15.1.2.1', '16.1.8.1', '15.1.8.1']);
+//exercise4(['15.1.2.1', '16.1.8.1', '15.1.8.1']);
 function exercise5(): string
 {
     $words = [
@@ -183,8 +183,19 @@ function exercise5(): string
     Masyvo elementų skaičius galėtų dideti, bet jis visada bus lyginis.
     Rezultatas turėtų būti - 'Quick fox jumps over the very lazy dog'
     */
-    return '';
+    $secondHalf = array_slice($words, 4);
+    $firstHalf = array_slice($words, 0, 4);
+
+    $reverseFirst = array_reverse($firstHalf);
+    $reverseSecond = array_reverse($secondHalf);
+
+    $inOrder = array_merge($reverseFirst, $reverseSecond);
+
+    $sentence = implode(' ', $inOrder);
+    return $sentence;
 }
+
+print_r(exercise5());
 
 
 /*
