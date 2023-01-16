@@ -140,17 +140,21 @@ function exercise4(array $newIpList): array
         'ipsRemaining' => [],
     ];
 
+//    ipsNew - ip iš $newIpList, kurių nėra $existingIpList
     foreach ($newIpList as $newIp)
         {
-            if(!array_search($newIp, $existingIpList, true)){
-                $result['ipsNew'] = $newIp;
+            if(!in_array($newIp, $existingIpList, true)){
+                $result['ipsNew'][] = $newIp;
             }
         }
 
+//    ipsOld - ip iš $existingIpList, kurių nėra $newIpList
     foreach ($existingIpList as $existingIp)
         {
-            if(!array_search($existingIp, $newIpList, true)){
-                $result['ipsOld'] = $existingIp;
+            if(!in_array($existingIp, $newIpList, true)){
+                $result['ipsOld'][] = $existingIp;
+            } elseif(in_array($existingIp, $newIpList, true)){ //    ipsRemaining - ip, kurie egzistuoja abiejuose sąrašuose
+                $result['ipsRemaining'][] = $existingIp;
             }
         }
 
