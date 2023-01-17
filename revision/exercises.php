@@ -56,11 +56,11 @@ function exercise2 (array $array, int $num)
 //       funkcija paverčia šį skaičių pliusiniu.
 //Funkcijos kvietimas: exercise10(60)
 
-function exercise3(int $number)
+function exercise3(int $number):void
     {
         if ($number < 0){
             $number = -$number;
-            return $number;
+//            return $number;
         }
 
         for ($i = 1; $i < $number; $i++){
@@ -93,30 +93,39 @@ function exercise3(int $number)
 //                 'ends_with' => u,
 //             ]
 //         ]
-//
-//
-//
-$vowels = ['a', 'e', 'i', 'o', 'u'];
 
-function exercise4 (array $words)
+function exercise4 (array $words):array
     {
+        $vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+        $wordStatistics = [];
+
         foreach ($words as $key => $word){
             $key = $word;
             $actualWord = $word;
-//            foreach ($letters as $let => $letter){
-//                if (str_contains($word, $letter)){
-//
-//                }
-//
+            $word = [];
+
+            $divided = str_split($actualWord);
+            var_dump($divided);
+            $numOfVowels = [];
+
+//            foreach ($divided as $letter){
+                preg_match_all('/[aeiouyAEIOUY]/', $actualWord, $numOfVowels);
 //            }
 
+            var_dump($numOfVowels);
+            $word['vowels'] = count($numOfVowels);
+
+            $word['consonants'] = strlen($actualWord) - count($numOfVowels);
             $word['length'] = strlen($actualWord);
-            $word['starts_with'] = substr($actualWord, 0);
+            $word['starts_with'] = substr($actualWord, 0, 1);
             $word['ends_with'] = substr($actualWord, -1);
+
+            $wordStatistics[$key] = $word;
         }
+        return $wordStatistics;
     }
 
-exercise4(['hello', 'you']);
+print_r(exercise4(['hello', 'you']));
 
 //Sis array bus naudojamas 5 ir 6 uzduociai :
 $products =
@@ -142,8 +151,24 @@ $products =
     ];
 
 //5. Atspausdinkite statistika - pavadinima, kokia kaina ir koks likutis.
-//Pvz:. Pavadinimas - Sofa, Kaina - 15.6, Likutis - 2
-//
+//Jeigu produkte truksta numatytu parametru, vietoje ju naudokite N/A
+//    Pvz.:
+//        - Pavadinimas - Softest rug, Kaina - 27.3, Likutis - 3
+//        - Pavadinimas - Didzioji sofa, Kaina - N/A, Likutis - N/A
+function exercise5(array $productArray):string
+{
+    foreach ($productArray as $items) {
+        foreach ($items as $key => $product) {
+            if (is_array($product) && ($product['price'] || $product['kaina']) && $product['quantity']) {
+                return $items[$key];
+            }
+        }
+    }
+    return '';
+}
+
+//exercise5($products);
+
 //6. Parašykite funkciją kuri priimti prekės pavadinimą ir kokį kiekį norima nusipirkti, jeigu kiekio užtenka mūsų sandelyje (masyve)
 //    tuomet atspausdinama - Jums parduota tokio pavadinimo - PREKES_PAVADINIMAS, prekė, kuri kainuoja - 55.55
 //    Kitu atveju turi buti spausdinama - atsiprasau, bet tokio likucio sandelyje nebeturime.
